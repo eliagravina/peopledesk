@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS (dal portale HTML originale)
+═══════════════════════════════════════════ */
+:root {
+  --bg:        #F4F1EC;
+  --surface:   #FFFFFF;
+  --surface2:  #EDE9E1;
+  --surface3:  #E4DFD5;
+  --border:    rgba(60,50,30,0.10);
+  --border2:   rgba(60,50,30,0.18);
+  --text:      #1C1814;
+  --text2:     #6B6255;
+  --text3:     #A89D8E;
+  --accent:    #2A5C45;
+  --accent2:   #3D7A5E;
+  --accent-lt: #DCF0E7;
+  --gold:      #B07D2C;
+  --gold-lt:   #F5EDDA;
+  --red:       #9B3232;
+  --red-lt:    #FAEAEA;
+  --blue:      #1D4B8F;
+  --blue-lt:   #E3EBF8;
+  --amber:     #8F5A14;
+  --amber-lt:  #F7EDDA;
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  18px;
+  --r-xl:  24px;
+  --sidebar:   230px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+[data-theme="dark"] {
+  --bg:        #111210;
+  --surface:   #1A1C1B;
+  --surface2:  #222523;
+  --surface3:  #2A2E2C;
+  --border:    rgba(255,255,255,0.07);
+  --border2:   rgba(255,255,255,0.13);
+  --text:      #E8E4DC;
+  --text2:     #9A9589;
+  --text3:     #5C5850;
+  --accent:    #3D7A5E;
+  --accent-lt: #1A3028;
+  --red-lt:    #2A1515;
+  --blue-lt:   #111E30;
+  --amber-lt:  #251A08;
+  --gold-lt:   #2A2010;
+}
+
+/* ── Base ── */
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* ── Avatar ── */
+.av { display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 600; flex-shrink: 0; }
+.av-teal   { background: #9FE1CB; color: #085041; }
+.av-blue   { background: #B5D4F4; color: #0C447C; }
+.av-coral  { background: #F5C4B3; color: #712B13; }
+.av-amber  { background: #FAC775; color: #633806; }
+.av-purple { background: #CECBF6; color: #3C3489; }
+.av-green  { background: #C0DD97; color: #27500A; }
+
+/* ── Pills ── */
+.pill { font-size: 10px; padding: 2px 8px; border-radius: 8px; font-weight: 500; display: inline-flex; align-items: center; }
+.pill-green  { background: var(--accent-lt); color: var(--accent); }
+.pill-gray   { background: var(--surface2);  color: var(--text3);  }
+.pill-blue   { background: var(--blue-lt);   color: var(--blue);   }
+.pill-amber  { background: var(--amber-lt);  color: var(--amber);  }
+.pill-red    { background: var(--red-lt);    color: var(--red);    }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
+
+/* ── Animations ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+.animate-slideUp { animation: slideUp 0.3s cubic-bezier(.22,.68,0,1.2) both; }
+
+@keyframes nfcPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(42,92,69,0.25); }
+  50%     { box-shadow: 0 0 0 20px rgba(42,92,69,0); }
+}
+.nfc-pulse { animation: nfcPulse 1.8s ease-in-out infinite; }
+
+@keyframes nfcWave {
+  0%   { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
